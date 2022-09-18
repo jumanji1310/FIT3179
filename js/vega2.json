@@ -1,0 +1,77 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Test ",
+    "width": 800,
+    "height": 450,
+    "projection": {
+        "type": "equalEarth"
+    },
+    "layer": [
+        {
+            "data": {
+                "url": "../map/world_map.json",
+                "format": {
+                    "type": "topojson",
+                    "feature": "World_Continents"
+                }
+            },
+            "transform": [
+                {
+                    "lookup": "properties.CONTINENT",
+                    "from": {
+                        "data": {
+                            "url": "../data/data.csv"
+                        },
+                        "key": "Continents",
+                        "fields": [
+                            "Deaths"
+                        ]
+                    }
+                }
+            ],
+            "mark": {
+                "type": "geoshape"
+            },
+            "encoding": {
+                "color": {
+                    "field": "Deaths",
+                    "type": "quantitative",
+                    "scale": {
+                        "type": "threshold",
+                        "domain": [
+                            1000,
+                            2000,
+                            3000
+                        ],
+                        "range": [
+                            "#fdbe85",
+                            "#fd8d3c",
+                            "#e6550d",
+                            "#a63603"
+                        ]
+                    }
+                },
+                "tooltip": [
+                    {
+                        "field": "properties.CONTINENT",
+                        "type": "nominal",
+                        "title": "Continent"
+                    },
+                    {
+                        "field": "Deaths",
+                        "type": "quantitative"
+                    }
+                ]
+            }
+        },
+        {
+            "data": {
+                "url": "../map/graticule.json",
+                "format": {
+                    "type": "topojson",
+                    "feature": "ne_110m_graticules_30"
+                }
+            }
+        }
+    ]
+}
