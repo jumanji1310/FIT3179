@@ -1,0 +1,89 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Internet users per 10,000 population by country",
+    "width": 800,
+    "height": 400,
+    "projection": {
+        "type": "equalEarth"
+    },
+    "layer": [
+        {
+            "data": {
+                "graticule": {
+                    "step": [
+                        30,
+                        30
+                    ]
+                }
+            },
+            "mark": {
+                "type": "geoshape",
+                "stroke":"black",
+                "strokeWidth":0.5
+            }
+        },
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/JiazhouLiu/FIT3179/main/VegaLite/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
+                "format": {
+                    "type": "topojson",
+                    "feature": "ne_110m_admin_0_countries"
+                }
+            },
+            "transform": [
+                {
+                    "lookup": "properties.NAME",
+                    "from": {
+                        "data": {
+                            "url": "../data/no_users.csv"
+                        },
+                        "key": "Country",
+                        "fields": [
+                            "users",
+                            "Population"
+                        ]
+                    }
+                },
+                {
+                    "calculate": "floor(datum.users/datum.Population*10000) + 0",
+                    "as": "Total users"
+                }
+            ],
+            "mark": {
+                "type": "geoshape"
+            },
+            "encoding": {
+                "color": {
+                    "field": "Total users",
+                    "type": "quantitative",
+                    "scale": {
+                        "type": "threshold",
+                        "domain": [
+                            2500,
+                            5000,
+                            7500
+                        ],
+                        "range": [
+                            "red",
+                            "#fd8d3c",
+                            "#e6550d",
+                            "blue"
+                        ]
+                    }
+                },
+                "tooltip": [
+                    {
+                        "field": "properties.NAME",
+                        "type": "nominal",
+                        "title": "Country Name"
+                    },
+                    {
+                        "field": "Total users",
+                        "type": "quantitative",
+                        "title": "Number of users per 10,000 population"
+                    }
+                ]
+            }
+        }
+    ]
+}

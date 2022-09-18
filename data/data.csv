@@ -1,10 +1,2 @@
-Continents,Deaths
-Africa,1000
-Asia,2000
-Australia,1500
-North America,500
-South America,2500
-Oceania,2000
-South America,4000
-Antarctica,3500
-Europe,2500
+Country,users,Population
+China,10000,50000
