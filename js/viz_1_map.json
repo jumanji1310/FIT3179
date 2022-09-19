@@ -9,18 +9,10 @@
     "layer": [
         {
             "data": {
-                "graticule": {
-                    "step": [
-                        30,
-                        30
-                    ]
-                }
-            },
-            "mark": {
-                "type": "geoshape",
-                "stroke":"black",
-                "strokeWidth":0.5
-            }
+                "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/2_symbol_map/js/WorldMapWithGraticules.topojson",
+                "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
+              },
+              "mark": {"type": "geoshape", "fill": null, "stroke": "lightgray"}
         },
         {
             "data": {
@@ -45,7 +37,7 @@
                     }
                 },
                 {
-                    "calculate": "floor(datum.users/datum.Population*10000) + 0",
+                    "calculate": "datum.users",
                     "as": "Total users"
                 }
             ],
