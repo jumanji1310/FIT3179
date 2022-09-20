@@ -12,14 +12,14 @@
     "layer": [
         {
             "data": {
-                "url": "../map/ne_110m_admin_0_countries.topojson",
+                "url": "https://raw.githubusercontent.com/jumanji1310/FIT3179/main/map/ne_110m_admin_0_countries.topojson",
                 "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
               },
               "mark": {"type": "geoshape", "fill": null, "stroke": "lightgray"}
         },
         {
             "data": {
-                "url": "../map/ne_110m_admin_0_countries.topojson",
+                "url": "https://raw.githubusercontent.com/jumanji1310/FIT3179/main/map/ne_110m_admin_0_countries.topojson",
                 "format": {
                     "type": "topojson",
                     "feature": "ne_110m_admin_0_countries"
