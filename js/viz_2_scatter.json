@@ -1,0 +1,113 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 400,
+    "data": {"url": "../data/internet_speed.csv"},
+    "params": [
+      {
+        "name": "Category_selection",
+        "bind": {
+          "input": "select",
+          "options": [
+            null,
+            "Broadband speed",
+            "Mobile speed"
+          ],
+          "labels": [
+            "None",
+            "Broadband speed",
+            "Mobile speed"
+          ],
+          "name": "Show top for: "
+        }
+      }
+    ],
+
+    "encoding": {
+      "x": {"field": "Broadband_speed", "type": "quantitative","title": "Average Broadband Speed (Mbits/s)"},
+      "y": {"field": "Mobile_speed", "type": "quantitative","title": "Average Mobile Speed (Mbits/s)"}
+    },
+    "layer": [
+      {
+        "mark": {
+          "type":"circle",
+          "size":100
+        },
+        "params": [{
+          "name": "continent_selection",
+          "select": {"type": "point", "fields": ["Continent"]},
+          "bind": "legend"
+        }],
+        "encoding": {
+          "color": {
+            "field": "Continent",
+            "type": "nominal",
+            "scale": {
+              "domain": [
+                "North America",
+                "South America",
+                "Europe",
+                "Africa",
+                "Asia",
+                "Oceania"
+              ],
+              "range": [
+                "#e41a1c",
+                "#984ea3",
+                "#ff7f00",
+                "#a6cee3",
+                "#377eb8",
+                "#a65628"
+              ]
+            }
+          },
+          "opacity": {
+            "condition":{"param": "continent_selection", "value": 1},
+            "value": 0.2
+          },
+          "tooltip": [        
+            {
+                "field": "Country",
+                "type": "nominal",
+                "title": "Country"
+            },
+            {
+              "field": "Continent",
+              "type": "nominal",
+              "title": "Continent"
+          },
+            {
+            "field": "Broadband_speed",
+            "type": "quantitative",
+            "title": "Average Broadband Speed (Mbits/s)"
+        },{
+            "field": "Mobile_speed",
+            "type": "quantitative",
+            "title": "Average Mobile Speed (Mbits/s)"
+            }
+        ]
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "right",
+          "baseline": "middle",
+          "dx": -12,
+          "fontSize": 11.5,
+          "fontStyle": "italic"
+        },
+        "encoding": {
+          "text": {"field": "Country", "type": "nominal"},
+          "color": {"value": "black"},
+          "opacity": {
+            "condition": {
+              "test": "((Category_selection == 'Broadband speed') && (datum['Country'] == 'Uruguay')) || ((Category_selection == 'Mobile speed') && (datum['Country'] == 'Australia'))",
+              "value": 1
+            },
+            "value": 0
+          }
+        }
+      }
+    ]
+  }

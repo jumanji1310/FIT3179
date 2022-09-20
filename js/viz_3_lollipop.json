@@ -1,0 +1,37 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 400,
+    "data": {
+        "url": "../data/top_mobile.csv"
+    },
+    "layer": [
+        {
+            "mark": {
+                "type": "bar",
+                "fill": "red",
+                "height": 5
+            }
+        },
+        {
+            "mark":{
+                "type": "text"
+            },
+            "encoding": {
+                "text":{"field":"Country", "type": "nominal"}
+            }
+        }
+    ],
+    "encoding": {
+        
+        "y": {
+            "field": "Company",
+            "type": "nominal",
+            "sort": "-x"
+        },
+        "x": {
+            "field": "Total_subscriptions",
+            "type": "quantitative"
+        }
+    }
+}
