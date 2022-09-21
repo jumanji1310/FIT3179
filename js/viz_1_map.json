@@ -13,9 +13,16 @@
         {
             "data": {
                 "url": "https://raw.githubusercontent.com/jumanji1310/FIT3179/main/map/ne_110m_admin_0_countries.topojson",
-                "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
-              },
-              "mark": {"type": "geoshape", "fill": null, "stroke": "lightgray"}
+                "format": {
+                    "type": "topojson",
+                    "feature": "ne_110m_graticules_30"
+                }
+            },
+            "mark": {
+                "type": "geoshape",
+                "fill": null,
+                "stroke": "lightgray"
+            }
         },
         {
             "data": {
@@ -60,7 +67,12 @@
                             5000,
                             7500
                         ],
-                        "range": ["#3ACBE8", "#1CA3DE", "#0160C9", "#0041C7"]
+                        "range": [
+                            "#3ACBE8",
+                            "#1CA3DE",
+                            "#0160C9",
+                            "#0041C7"
+                        ]
                     }
                 },
                 "tooltip": [
