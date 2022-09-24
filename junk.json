@@ -1,0 +1,29 @@
+{
+    "mark": {
+        "type": "point",
+        "fill": "red"
+    },
+    "encoding": {
+        "x": {
+            "field": "Total_subscriptions",
+            "type": "quantitative"
+        },
+        "y": {
+            "field": "Company",
+            "type": "nominal",
+            "sort": "-x"
+        },
+        "tooltip": [
+            {
+                "field": "Country",
+                "type": "nominal",
+                "title": "Country"
+            },
+            {
+                "field": "Total_subscriptions",
+                "type": "quantitative",
+                "title": "Total subscriptions (millions)"
+            }
+        ]
+    }
+},

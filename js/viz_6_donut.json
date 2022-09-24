@@ -1,0 +1,30 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 400,
+    "title": "Net free countries",
+    "data": {
+        "url": "../data/free_net.csv"
+    },
+    "mark": {
+        "type": "arc",
+        "innerRadius": 50
+    },
+    "encoding": {
+        "theta": {
+            "field": "Users",
+            "type": "quantitative"
+        },
+        "color": {
+            "field": "Category",
+            "type": "nominal"
+        },
+        "tooltip": [
+            {
+                "field": "Percent",
+                "type": "nominal",
+                "title": "Percentage of countries"
+            }
+        ]
+    }
+}

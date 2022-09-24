@@ -5,102 +5,45 @@
     "data": {
         "url": "../data/subscribers_and_downloads.csv"
     },
-    "layer": [
-        {
-            "mark": {
-                "type": "line",
-                "point": true
-            },
-            "encoding": {
-                "y": {
-                    "field": "Broadband subscribers",
-                    "type": "quantitative",
-                    "title": "Total subscribers"
-                },
-                "x": {
-                    "field": "Date",
-                    "type": "nominal",
-                    "axis": {
-                        "labelAngle": 0
-                    },
-                    "sort": [
-                        "Jun 2013, Dec 2013"
-                    ],
-                    "title": "Month and Year"
-                }
-            }
+    "repeat": {
+        "layer": [
+            "Broadband subscribers",
+            "Mobile subscribers",
+            "Mobile downloads",
+            "Broadband downloads"
+        ]
+    },
+    "resolve": {"scale": {"y": "independent"}},
+    "spec": {
+        "mark": {
+            "type": "line",
+            "point": true
         },
-        {
-            "mark": {
-                "type": "line",
-                "point": true
-            },
-            "encoding": {
-                "y": {
-                    "field": "Mobile subscribers",
-                    "type": "quantitative",
-                    "title": "Total subscribers"
+        "encoding": {
+            "y": {
+                "field": {
+                    "repeat": "layer"
                 },
-                "x": {
-                    "field": "Date",
-                    "type": "nominal",
-                    "axis": {
-                        "labelAngle": 0
-                    },
-                    "sort": [
-                        "Jun 2013, Dec 2013"
-                    ],
-                    "title": "Month and Year"
-                }
-            }
-        },
-        {
-            "mark": {
-                "type": "line",
-                "point": true
+                "type": "quantitative",
+                "title": "Total subscribers"
             },
-            "encoding": {
-                "y": {
-                    "field": "Broadband downloads",
-                    "type": "quantitative",
-                    "title": "Total subscribers"
+            "x": {
+                "field": "Date",
+                "type": "nominal",
+                "axis": {
+                    "labelAngle": 0
                 },
-                "x": {
-                    "field": "Date",
-                    "type": "nominal",
-                    "axis": {
-                        "labelAngle": 0
-                    },
-                    "sort": [
-                        "Jun 2013, Dec 2013"
-                    ],
-                    "title": "Month and Year"
-                }
-            }
-        },
-        {
-            "mark": {
-                "type": "line",
-                "point": true
+                "sort": [
+                    "Jun 2013, Dec 2013"
+                ],
+                "title": "Month and Year"
             },
-            "encoding": {
-                "y": {
-                    "field": "Mobile downloads",
-                    "type": "quantitative",
-                    "title": "Total subscribers"
+            "color": {
+                "datum": {
+                    "repeat": "layer"
                 },
-                "x": {
-                    "field": "Date",
-                    "type": "nominal",
-                    "axis": {
-                        "labelAngle": 0
-                    },
-                    "sort": [
-                        "Jun 2013, Dec 2013"
-                    ],
-                    "title": "Month and Year"
-                }
+                "type": "nominal"
             }
         }
-    ]
+    }
 }
