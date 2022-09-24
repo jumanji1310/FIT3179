@@ -1,0 +1,106 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 400,
+    "data": {
+        "url": "../data/subscribers_and_downloads.csv"
+    },
+    "layer": [
+        {
+            "mark": {
+                "type": "line",
+                "point": true
+            },
+            "encoding": {
+                "y": {
+                    "field": "Broadband subscribers",
+                    "type": "quantitative",
+                    "title": "Total subscribers"
+                },
+                "x": {
+                    "field": "Date",
+                    "type": "nominal",
+                    "axis": {
+                        "labelAngle": 0
+                    },
+                    "sort": [
+                        "Jun 2013, Dec 2013"
+                    ],
+                    "title": "Month and Year"
+                }
+            }
+        },
+        {
+            "mark": {
+                "type": "line",
+                "point": true
+            },
+            "encoding": {
+                "y": {
+                    "field": "Mobile subscribers",
+                    "type": "quantitative",
+                    "title": "Total subscribers"
+                },
+                "x": {
+                    "field": "Date",
+                    "type": "nominal",
+                    "axis": {
+                        "labelAngle": 0
+                    },
+                    "sort": [
+                        "Jun 2013, Dec 2013"
+                    ],
+                    "title": "Month and Year"
+                }
+            }
+        },
+        {
+            "mark": {
+                "type": "line",
+                "point": true
+            },
+            "encoding": {
+                "y": {
+                    "field": "Broadband downloads",
+                    "type": "quantitative",
+                    "title": "Total subscribers"
+                },
+                "x": {
+                    "field": "Date",
+                    "type": "nominal",
+                    "axis": {
+                        "labelAngle": 0
+                    },
+                    "sort": [
+                        "Jun 2013, Dec 2013"
+                    ],
+                    "title": "Month and Year"
+                }
+            }
+        },
+        {
+            "mark": {
+                "type": "line",
+                "point": true
+            },
+            "encoding": {
+                "y": {
+                    "field": "Mobile downloads",
+                    "type": "quantitative",
+                    "title": "Total subscribers"
+                },
+                "x": {
+                    "field": "Date",
+                    "type": "nominal",
+                    "axis": {
+                        "labelAngle": 0
+                    },
+                    "sort": [
+                        "Jun 2013, Dec 2013"
+                    ],
+                    "title": "Month and Year"
+                }
+            }
+        }
+    ]
+}

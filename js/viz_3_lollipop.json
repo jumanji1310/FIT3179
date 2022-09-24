@@ -5,6 +5,24 @@
     "data": {
         "url": "../data/top_mobile.csv"
     },
+    "encoding": {
+        
+        "y": {
+            "field": "Company",
+            "type": "nominal",
+            "title": "Mobile company",
+            "sort": "-x"
+        },
+        "x": {
+            "field": "Total_subscriptions",
+            "type": "quantitative",
+            "title": "Total subscriptions (in millions)"
+        },
+        "tooltip":[
+            {"field": "Country", "type": "nominal", "title":"Country"},
+            {"field": "Total_subscriptions", "type": "quantitative", "title":"Total subscriptions"}
+        ]
+    },
     "layer": [
         {
             "mark": {
@@ -12,26 +30,6 @@
                 "fill": "red",
                 "height": 5
             }
-        },
-        {
-            "mark":{
-                "type": "text"
-            },
-            "encoding": {
-                "text":{"field":"Country", "type": "nominal"}
-            }
         }
-    ],
-    "encoding": {
-        
-        "y": {
-            "field": "Company",
-            "type": "nominal",
-            "sort": "-x"
-        },
-        "x": {
-            "field": "Total_subscriptions",
-            "type": "quantitative"
-        }
-    }
+    ]
 }

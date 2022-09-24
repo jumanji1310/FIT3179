@@ -1,0 +1,89 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 400,
+    "title": {
+        "text": "Number of subscribers of different broadband types from 2013 to 2018",
+        "fontSize": 30
+    },
+    "data": {
+        "url": "../data/broadband_type.csv"
+    },
+    "mark": "bar",
+    "transform": [
+        {
+            "calculate": "if (datum['Broadband type'] == 'Mobile wireless', 0, if( datum['Broadband type'] == 'DSL',1, if( datum['Broadband type'] == 'Fibre', 2, if( datum['Broadband type'] == 'Cable',3,4))))",
+            "as": "order"
+        }
+    ],
+    "encoding": {
+        "x": {
+            "field": "Date",
+            "type": "ordinal",
+            "axis": {
+                "labelAngle": 0
+            },
+            "sort": [
+                "Jun 2013, Dec 2013"
+            ],
+            "title": "Month and Year"
+        },
+        "y": {
+            "aggregate": "sum",
+            "field": "Subscribers",
+            "type": "quantitative",
+            "title": "Number of subscribers"
+        },
+        "order": {
+            "field": "order"
+        },
+        "color": {
+            "field": "Broadband type",
+            "type": "nominal",
+            "sort": [
+                "Mobile wireless",
+                "DSL"
+            ],
+            "scale": {
+                "domain": [
+                    "Other",
+                    "Cable",
+                    "Fibre",
+                    "DSL",
+                    "Mobile wireless"
+                ],
+                "range": [
+                    "#ff7f00",
+                    "#4daf4a",
+                    "#377eb8",
+                    "#e7ba52",
+                    "#984ea3"
+                ]
+            }
+        },
+        "tooltip": [
+            {
+                "field": "Date",
+                "type": "nominal",
+                "title": "Date"
+            },
+            {
+                "field": "Broadband type",
+                "type": "nominal",
+                "title": "Broadband type"
+            },
+            {
+                "field": "Subscribers",
+                "type": "quantitative",
+                "title": "Total subscriptions for broadband type",
+                "format": ","
+            },
+            {
+                "field": "Total Broadband subscribers",
+                "type": "quantitative",
+                "title": "Total broadband subscribers",
+                "format": ","
+            }
+        ]
+    }
+}
