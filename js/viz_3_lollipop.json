@@ -2,32 +2,61 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": 800,
     "height": 400,
+    "title": "Most expensive and cheapest monthly broadband price by country in 2022",
     "data": {
-        "url": "../data/top_mobile.csv"
+        "url": "../data/prices.csv"
     },
+    "params": [
+        {
+            "name": "price_selection",
+            "value": "highest",
+            "bind": {
+                "input": "radio",
+                "options": [
+                    "highest",
+                    "lowest"
+                ],
+                "labels": [
+                    "Highest",
+                    "Lowest"
+                ],
+                "name": "Show highest/lowest price: "
+            }
+        }
+    ],
+    "transform": [
+        {"filter": "if(price_selection == 'highest', datum.Price > 50, datum.Price < 50)"}
+    ],
     "encoding": {
-        
         "y": {
-            "field": "Company",
+            "field": "Country",
             "type": "nominal",
-            "title": "Mobile company",
+            "title": "Country",
             "sort": "-x"
         },
         "x": {
-            "field": "Total_subscriptions",
+            "field": "Price",
             "type": "quantitative",
-            "title": "Total subscriptions (in millions)"
+            "title": "Monthly price for Unlimited 60Mbps+"
         },
-        "tooltip":[
-            {"field": "Country", "type": "nominal", "title":"Country"},
-            {"field": "Total_subscriptions", "type": "quantitative", "title":"Total subscriptions"}
-        ]
+        "tooltip": [
+            {
+                "field": "Country",
+                "type": "nominal",
+                "title": "Country"
+            },
+            {
+                "field": "Price",
+                "type": "quantitative",
+                "title": "Price ($AUD)"
+            }
+        ],
+        "color": {"condition": {"test": "datum.Country == 'Australia'", "value": "red"}, "value": "blue"}
     },
     "layer": [
         {
             "mark": {
                 "type": "bar",
-                "fill": "red",
                 "height": 5
             }
         }
