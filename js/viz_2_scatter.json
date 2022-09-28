@@ -1,6 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 800,
+  "config": {
+    "font": "Verdana"
+},
+  "width": "container",
   "height": 400,
   "title": "Average broadband and mobile speed",  
   "data": {

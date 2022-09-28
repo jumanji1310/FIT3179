@@ -1,10 +1,13 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 800,
+    "width": "container",
     "height": 400,
+    "config": {
+        "font": "Verdana"
+    },
     "title": {
         "text": "Number of subscribers of different broadband types from 2013 to 2018",
-        "fontSize": 30
+        "fontSize": 20
     },
     "data": {
         "url": "../data/broadband_type.csv"
