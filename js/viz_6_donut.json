@@ -1,33 +1,69 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "config": {
-        "font": "Verdana"
+        "font": "Tahoma"
     },
     "width": "container",
-    "height": 400,
-    "title": "Net free countries",
-    "data": {
-        "url": "../data/free_net.csv"
-    },
-    "mark": {
-        "type": "arc",
-        "innerRadius": 50
-    },
-    "encoding": {
-        "theta": {
-            "field": "Users",
-            "type": "quantitative"
-        },
-        "color": {
-            "field": "Category",
-            "type": "nominal"
-        },
-        "tooltip": [
-            {
-                "field": "Percent",
-                "type": "nominal",
-                "title": "Percentage of countries"
+    "height": "container",
+    "layer": [
+        {
+            "data": {
+                "url": "../data/free_net.csv"
+            },
+            "mark": {
+                "type": "arc",
+                "innerRadius": 50
+            },
+            "encoding": {
+                "theta": {
+                    "field": "Users",
+                    "type": "quantitative"
+                },
+                "color": {
+                    "field": "Category",
+                    "type": "nominal",
+                    "scale": {
+                        "domain": [
+                            "Free",
+                            "Partly free",
+                            "Not free",
+                            "Not assessed"
+                        ],
+                        "range": [
+                            "#ff7f00",
+                            "#4daf4a",
+                            "#984ea3",
+                            "#377eb8"
+                        ]
+                    }
+                },
+                "tooltip": [
+                    {
+                        "field": "Percent",
+                        "type": "nominal",
+                        "title": "Percentage of countries"
+                    }
+                ]
             }
-        ]
-    }
+        },
+        {
+            "data": {
+                "values": [
+                    {
+                        "theta": 0
+                    }
+                ]
+            },
+            "mark": {
+                "type": "text",
+                "theta": 0.7,
+                "radius": 120
+            },
+            "encoding": {
+                "text": {
+                    "value": "Australia"
+                }
+            }
+        }
+    ]
 }

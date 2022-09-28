@@ -1,52 +1,62 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "config": {
-        "font": "Verdana"
+        "font": "Tahoma"
     },
     "width": "container",
-    "height": 400,
+    "height": "container",
     "data": {
-        "url": "../data/subscribers_and_downloads.csv"
+        "url": "../data/subscribers_and_downloads2.csv"
     },
-    "repeat": {
-        "layer": [
-            "Broadband subscribers",
-            "Mobile subscribers",
-            "Mobile downloads",
-            "Broadband downloads"
-        ]
-    },
-    "resolve": {"scale": {"y": "independent"}},
-    "spec": {
-        "mark": {
-            "type": "line",
-            "point": true
-        },
-        "encoding": {
-            "y": {
-                "field": {
-                    "repeat": "layer"
-                },
-                "type": "quantitative",
-                "title": "Total subscribers"
-            },
-            "x": {
-                "field": "Date",
-                "type": "nominal",
-                "axis": {
-                    "labelAngle": 0
-                },
-                "sort": [
-                    "Jun 2013, Dec 2013"
+    "params": [
+        {
+            "name": "type_selection",
+            "value": null,
+            "bind": {
+                "input": "radio",
+                "options": [
+                    null,
+                    "subscribers",
+                    "downloads"
                 ],
-                "title": "Month and Year"
-            },
-            "color": {
-                "datum": {
-                    "repeat": "layer"
-                },
-                "type": "nominal"
+                "labels": [
+                    "Show all",
+                    "Subscribers",
+                    "Downloads"
+                ],
+                "name": "Show Subscribers/Downloads: "
             }
+        }
+    ],
+    "transform": [
+        {
+            "filter": "type_selection == null || if(type_selection == 'downloads', indexof(datum.Category, 'downloads') > 0, indexof(datum.Category, 'subscribers') > 0)"
+        }
+    ],
+    "mark": {
+        "type": "line",
+        "point": true
+    },
+    "encoding": {
+        "y": {
+            "field": "Value",
+            "type": "quantitative",
+            "title": ["a","b"]
+        },
+        "x": {
+            "field": "Date",
+            "type": "ordinal",
+            "axis": {
+                "labelAngle": 0
+            },
+            "sort": [
+                "Jun 2013, Dec 2013"
+            ],
+            "title": "Month and Year"
+        },
+        "color": {
+            "field": "Category",
+            "type": "nominal"
         }
     }
 }

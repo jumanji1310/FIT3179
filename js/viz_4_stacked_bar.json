@@ -1,19 +1,41 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": "container",
-    "height": 400,
+    "height": "container",
     "config": {
-        "font": "Verdana"
-    },
-    "title": {
-        "text": "Number of subscribers of different broadband types from 2013 to 2018",
-        "fontSize": 20
+        "font": "Tahoma"
     },
     "data": {
-        "url": "../data/broadband_type.csv"
+        "url": "https://raw.githubusercontent.com/jumanji1310/FIT3179/main/data/broadband_type.csv"
     },
     "mark": "bar",
+    "params": [
+        {
+          "name": "type_selection",
+          "value": null,
+          "bind": {
+            "input": "radio",
+            "options": [
+              null,
+              "Other",
+              "Cable",
+              "Fibre",
+              "DSL",
+              "Mobile wireless"            ],
+            "labels": [
+              "Show All",
+              "Other",
+              "Cable",
+              "Fibre",
+              "DSL",
+              "Mobile"
+            ],
+            "name": "Filter by connection type: "
+          }
+        }
+      ],
     "transform": [
+        {"filter": "type_selection == null || datum['Broadband type'] == type_selection"},
         {
             "calculate": "if (datum['Broadband type'] == 'Mobile wireless', 0, if( datum['Broadband type'] == 'DSL',1, if( datum['Broadband type'] == 'Fibre', 2, if( datum['Broadband type'] == 'Cable',3,4))))",
             "as": "order"
@@ -41,6 +63,7 @@
             "field": "order"
         },
         "color": {
+            "title":"Connection type",
             "field": "Broadband type",
             "type": "nominal",
             "sort": [

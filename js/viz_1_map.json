@@ -1,14 +1,10 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "config": {
-        "font": "Verdana"
-    },
-    "title": {
-        "text": "Internet users percentage by country from 2020 to 2022",
-        "fontSize": 20
+        "font": "Tahoma"
     },
     "width": "container",
-    "height": 800,
+    "height": "container",
     "projection": {
         "type": "equalEarth"
     },

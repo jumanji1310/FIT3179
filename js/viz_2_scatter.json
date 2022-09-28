@@ -1,14 +1,14 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "config": {
-    "font": "Verdana"
+    "font": "Tahoma"
 },
   "width": "container",
-  "height": 400,
-  "title": "Average broadband and mobile speed",  
+  "height": "container",
   "data": {
     "url": "https://raw.githubusercontent.com/jumanji1310/FIT3179/main/data/internet_speed.csv"
   },
+
   "params": [
     {
       "name": "Continent_selection",
@@ -37,7 +37,6 @@
       }
     }
   ],
-
   "encoding": {
     "x": {
       "field": "Broadband_speed",
@@ -47,11 +46,21 @@
     "y": {
       "field": "Mobile_speed",
       "type": "quantitative",
-      "title": "Average Mobile Speed (Mbits/s)"
+      "title": "Average Mobile Speed (Mbits/s)",
+      "scale":{
+        "domain": [0, 110]
+      }
     }
   },
   "layer": [
     {
+      "params": [
+        {
+          "name": "grid",
+          "select": "interval",
+          "bind": "scales"
+        }
+      ],
       "mark": {"type": "circle", "size": 100},
       "encoding": {
         "color": {

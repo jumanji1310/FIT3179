@@ -1,13 +1,12 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": "container",
-    "height": 400,
+    "height": "container",
     "config": {
-        "font": "Verdana"
+        "font": "Tahoma"
     },
-    "title": "Most expensive and cheapest monthly broadband price by country in 2022",
     "data": {
-        "url": "../data/prices.csv"
+        "url": "https://raw.githubusercontent.com/jumanji1310/FIT3179/main/data/prices.csv"
     },
     "params": [
         {

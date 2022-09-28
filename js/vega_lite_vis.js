@@ -4,6 +4,7 @@ var vg_3 = "js/viz_3_lollipop.json";
 var vg_4 = "js/viz_4_stacked_bar.json";
 var vg_5 = "js/viz_5_line.json"
 var vg_6 = "js/viz_6_donut.json"
+var vg_7 = "js/viz_7_table.json"
 vegaEmbed("#viz-1-map", vg_1, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
 }).catch(console.error);
@@ -20,5 +21,8 @@ vegaEmbed("#viz-5-line", vg_5, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
 }).catch(console.error);
 vegaEmbed("#viz-6-donut", vg_6, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+}).catch(console.error);
+vegaEmbed("#viz-7-table", vg_7, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
 }).catch(console.error);

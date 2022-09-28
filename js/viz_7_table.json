@@ -1,0 +1,98 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "config": {
+        "font": "Tahoma"
+    },
+    "width": "container",
+    "height": "container",
+    "data": {
+        "url": "../data/freedom_score.csv"
+    },
+    "params": [
+        {
+            "name": "score_selection",
+            "value": "highest",
+            "bind": {
+                "input": "radio",
+                "options": [
+                    "highest",
+                    "lowest"
+                ],
+                "labels": [
+                    "Highest",
+                    "Lowest"
+                ],
+                "name": "Show highest/lowest scores: "
+            }
+        }
+    ],
+
+    "mark": "rect",
+    "encoding": {
+        "y": {
+            "field": "Country",
+            "type": "nominal",
+            "sort": [
+                "Iceland",
+                "Estonia",
+                "Canada",
+                "Costa Rica",
+                "Taiwan",
+                "Germany",
+                "France",
+                "United Kingdom",
+                "Georgia",
+                "Italy",
+                "Japan",
+                "Australia",
+                "United States",
+                "South Africa",
+                "Serbia",
+                "Belarus",
+                "Bahrain",
+                "Russia",
+                "Uzbekistan",
+                "Venezuela",
+                "Ethiopia",
+                "United Arab Emirates",
+                "Egypt",
+                "Pakistan",
+                "Saudi Arabia",
+                "Vietnam",
+                "Cuba",
+                "Myanmar",
+                "Iran",
+                "China"
+            ]
+        },
+        "x": {
+            "field": "Attribute",
+            "type": "nominal",
+            "sort": ["Obstacles to Access", "Limits on Content", "Violations of User Rights", "Total"],
+            "axis": {
+                "labelAngle": 0
+            }
+        },
+        "color": {
+            "field": "Value",
+            "title": "Score",
+            "type": "quantitative",
+            "scale": {
+                "type": "threshold",
+                "domain": [
+                    20,
+                    40,
+                    60,
+                    80
+                ],
+                "range": [
+                    "#ffffcc",
+                    "#c2e699",
+                    "#78c679",
+                    "#31a354",
+                    "#006837"
+                ]
+            }
+        }
+    }
+}
