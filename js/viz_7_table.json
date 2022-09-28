@@ -92,6 +92,10 @@
                     "#31a354",
                     "#006837"
                 ]
+            },
+            "legend":{
+                "titleFontSize":18,
+                "labelFontSize": 15
             }
         }
     }

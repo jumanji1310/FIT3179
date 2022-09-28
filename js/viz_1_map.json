@@ -75,7 +75,7 @@
                 "color": {
                     "field": "Percentage",
                     "type": "quantitative",
-                    "title": "Percentage of population",
+                    "title": ["Percentage of", "population"],
                     "scale": {
                         "type": "threshold",
                         "domain": [
@@ -89,6 +89,10 @@
                             "#78c679",
                             "#238443"
                         ]
+                    },
+                    "legend":{
+                        "titleFontSize":18,
+                        "labelFontSize": 15
                     }
                 },
                 "tooltip": [

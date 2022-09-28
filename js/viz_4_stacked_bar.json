@@ -46,7 +46,9 @@
             "field": "Date",
             "type": "ordinal",
             "axis": {
-                "labelAngle": 0
+                "labelAngle": 0,
+                "labelFontSize": 12,
+                "titleFontSize": 18
             },
             "sort": [
                 "Jun 2013, Dec 2013"
@@ -57,7 +59,12 @@
             "aggregate": "sum",
             "field": "Subscribers",
             "type": "quantitative",
-            "title": "Number of subscribers"
+            "title": "Number of subscribers",
+            "axis":{
+              "labelFontSize": 15,
+              "titleFontSize": 18,
+              "format": "1s"
+            }
         },
         "order": {
             "field": "order"
@@ -85,6 +92,10 @@
                     "#e7ba52",
                     "#984ea3"
                 ]
+            },
+            "legend":{
+                "titleFontSize":15,
+                "labelFontSize": 12
             }
         },
         "tooltip": [

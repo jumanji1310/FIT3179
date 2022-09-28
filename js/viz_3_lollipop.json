@@ -34,12 +34,20 @@
             "field": "Country",
             "type": "nominal",
             "title": "Country",
-            "sort": "-x"
+            "sort": "-x",
+            "axis":{
+              "labelFontSize": 15,
+              "titleFontSize": 18
+            }
         },
         "x": {
             "field": "Price",
             "type": "quantitative",
-            "title": "Monthly price for Unlimited 60Mbps+"
+            "title": "Monthly price for Unlimited 60Mbps+",
+            "axis":{
+              "labelFontSize": 15,
+              "titleFontSize": 18
+            }
         },
         "tooltip": [
             {

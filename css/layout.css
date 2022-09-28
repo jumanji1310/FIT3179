@@ -10,7 +10,7 @@ body {
 #viz-1-map {
     width: 80vw;
     height: 50vw;
-    margin: 3vw;
+    margin: 10vw;
     margin-top: 0;
     margin-bottom: 0;
 }
@@ -28,7 +28,8 @@ body {
 .map-heading {
     width: 80vw;
     height: 3vw;
-    margin: 3vw;
+    margin: 10vw;
+    margin-top: 0;
     margin-bottom: 0;
     background-color: #0033cc ;
     text-align: left;

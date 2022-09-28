@@ -35,6 +35,10 @@
                             "#984ea3",
                             "#377eb8"
                         ]
+                    },
+                    "legend":{
+                        "titleFontSize":18,
+                        "labelFontSize": 15
                     }
                 },
                 "tooltip": [

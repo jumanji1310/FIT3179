@@ -41,7 +41,11 @@
     "x": {
       "field": "Broadband_speed",
       "type": "quantitative",
-      "title": "Average Broadband Speed (Mbits/s)"
+      "title": "Average Broadband Speed (Mbits/s)",
+      "axis":{
+        "labelFontSize": 15,
+        "titleFontSize": 18
+      }
     },
     "y": {
       "field": "Mobile_speed",
@@ -49,6 +53,10 @@
       "title": "Average Mobile Speed (Mbits/s)",
       "scale":{
         "domain": [0, 110]
+      },
+      "axis":{
+        "labelFontSize": 15,
+        "titleFontSize": 18
       }
     }
   },
@@ -83,6 +91,10 @@
               "#ffff33",
               "#e7298a"
             ]
+          },
+          "legend":{
+              "titleFontSize":18,
+              "labelFontSize": 15
           }
         },
         "stroke": {

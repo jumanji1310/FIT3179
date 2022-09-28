@@ -8,31 +8,6 @@
     "data": {
         "url": "../data/subscribers_and_downloads2.csv"
     },
-    "params": [
-        {
-            "name": "type_selection",
-            "value": null,
-            "bind": {
-                "input": "radio",
-                "options": [
-                    null,
-                    "subscribers",
-                    "downloads"
-                ],
-                "labels": [
-                    "Show all",
-                    "Subscribers",
-                    "Downloads"
-                ],
-                "name": "Show Subscribers/Downloads: "
-            }
-        }
-    ],
-    "transform": [
-        {
-            "filter": "type_selection == null || if(type_selection == 'downloads', indexof(datum.Category, 'downloads') > 0, indexof(datum.Category, 'subscribers') > 0)"
-        }
-    ],
     "mark": {
         "type": "line",
         "point": true
@@ -41,13 +16,20 @@
         "y": {
             "field": "Value",
             "type": "quantitative",
-            "title": ["a","b"]
+            "title": "Total downloads (TB)",
+            "axis":{
+              "labelFontSize": 15,
+              "titleFontSize": 18,
+              "format": "1s"
+            }
         },
         "x": {
             "field": "Date",
             "type": "ordinal",
             "axis": {
-                "labelAngle": 0
+                "labelAngle": 0,
+                "labelFontSize": 12,
+                "titleFontSize": 18
             },
             "sort": [
                 "Jun 2013, Dec 2013"
@@ -56,7 +38,29 @@
         },
         "color": {
             "field": "Category",
-            "type": "nominal"
-        }
+            "type": "nominal",
+            "legend":{
+                "titleFontSize":15,
+                "labelFontSize": 12
+            }
+        },
+        "tooltip": [
+            {
+                "field": "Date",
+                "type": "nominal",
+                "title": "Date"
+            },
+            {
+                "field": "Category",
+                "type": "nominal",
+                "title": "Download type"
+            },
+            {
+                "field": "Value",
+                "type": "quantitative",
+                "title": "Data downloaded in terabytes (TB)",
+                "format": ","
+            }
+        ]
     }
 }
