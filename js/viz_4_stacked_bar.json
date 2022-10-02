@@ -35,6 +35,10 @@
         }
       ],
     "transform": [
+        {
+            "calculate": "split(datum.Date, ' ')",
+            "as": "SplitDate"
+        },
         {"filter": "type_selection == null || datum['Broadband type'] == type_selection"},
         {
             "calculate": "if (datum['Broadband type'] == 'Mobile wireless', 0, if( datum['Broadband type'] == 'DSL',1, if( datum['Broadband type'] == 'Fibre', 2, if( datum['Broadband type'] == 'Cable',3,4))))",
@@ -43,7 +47,7 @@
     ],
     "encoding": {
         "x": {
-            "field": "Date",
+            "field": "SplitDate",
             "type": "ordinal",
             "axis": {
                 "labelAngle": 0,
@@ -107,7 +111,7 @@
             {
                 "field": "Broadband type",
                 "type": "nominal",
-                "title": "Broadband type"
+                "title": "Connection type"
             },
             {
                 "field": "Subscribers",

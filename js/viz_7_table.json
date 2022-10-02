@@ -26,77 +26,206 @@
             }
         }
     ],
-
-    "mark": "rect",
-    "encoding": {
-        "y": {
-            "field": "Country",
-            "type": "nominal",
-            "sort": [
-                "Iceland",
-                "Estonia",
-                "Canada",
-                "Costa Rica",
-                "Taiwan",
-                "Germany",
-                "France",
-                "United Kingdom",
-                "Georgia",
-                "Italy",
-                "Japan",
-                "Australia",
-                "United States",
-                "South Africa",
-                "Serbia",
-                "Belarus",
-                "Bahrain",
-                "Russia",
-                "Uzbekistan",
-                "Venezuela",
-                "Ethiopia",
-                "United Arab Emirates",
-                "Egypt",
-                "Pakistan",
-                "Saudi Arabia",
-                "Vietnam",
-                "Cuba",
-                "Myanmar",
-                "Iran",
-                "China"
-            ]
+    "transform": [
+        {
+            "calculate": "split(datum.Country, ' ')",
+            "as": "SplitCountry"
         },
-        "x": {
-            "field": "Attribute",
-            "type": "nominal",
-            "sort": ["Obstacles to Access", "Limits on Content", "Violations of User Rights", "Total"],
-            "axis": {
-                "labelAngle": 0
-            }
-        },
-        "color": {
-            "field": "Value",
-            "title": "Score",
-            "type": "quantitative",
-            "scale": {
-                "type": "threshold",
-                "domain": [
-                    20,
-                    40,
-                    60,
-                    80
-                ],
-                "range": [
-                    "#ffffcc",
-                    "#c2e699",
-                    "#78c679",
-                    "#31a354",
-                    "#006837"
-                ]
-            },
-            "legend":{
-                "titleFontSize":18,
-                "labelFontSize": 15
-            }
+        {
+            "filter": "if(score_selection == 'highest', datum.Total > 50, datum.Total < 50)"
         }
-    }
+    ],
+    "layer": [
+        {
+            "encoding": {
+                "x": {
+                    "field": "SplitCountry",
+                    "title": "Country",
+                    "type": "nominal",
+                    "axis": {
+                        "labelAngle": 0,
+                        "labelFontSize": 12,
+                        "titleFontSize": 18
+                    },
+                    "sort": [
+                        "Iceland",
+                        "Estonia",
+                        "Canada",
+                        "Costa Rica",
+                        "Taiwan",
+                        "Germany",
+                        "France",
+                        "United Kingdom",
+                        "Georgia",
+                        "Italy",
+                        "Japan",
+                        "Australia",
+                        "United States",
+                        "South Africa",
+                        "Serbia",
+                        "Belarus",
+                        "Bahrain",
+                        "Russia",
+                        "Uzbekistan",
+                        "Venezuela",
+                        "Ethiopia",
+                        "United Arab Emirates",
+                        "Egypt",
+                        "Pakistan",
+                        "Saudi Arabia",
+                        "Vietnam",
+                        "Cuba",
+                        "Myanmar",
+                        "Iran",
+                        "China"
+                    ]
+                },
+                "y": {
+                    "title": "Score",
+                    "axis": {
+                        "labelAngle": 0,
+                        "labelFontSize": 15,
+                        "titleFontSize": 18
+                    }
+                },
+                "color": {
+                    "type": "nominal",
+                    "scale": {
+                        "domain": [
+                            "Obstacles to Access",
+                            "Limits on Content",
+                            "Violations of User Rights"
+                        ],
+                        "range": [
+                            "blue",
+                            "red",
+                            "purple"
+                        ]
+                    },
+                    "legend": {
+                        "title": "Category",
+                        "titleFontSize": 15,
+                        "labelFontSize": 12,
+                        "labelLimit": 200
+                    }
+                }
+            },
+            "layer": [
+                {
+                    "mark": {
+                        "type": "bar",
+                        "xOffset": -10,
+                        "size": 10
+                    },
+                    "encoding": {
+                        "y": {
+                            "field": "Obstacles to Access",
+                            "type": "quantitative"
+                        },
+                        "color": {
+                            "datum": "Obstacles to Access"
+                        },
+                        "tooltip": [
+                            {
+                                "field": "Country",
+                                "type": "nominal",
+                                "title": "Country"
+                            },
+                            {
+                                "field": "Cat1",
+                                "type": "nominal",
+                                "title": "Category"
+                            },
+                            {
+                                "field": "Obstacles to Access",
+                                "type": "quantitative",
+                                "title": "Score for category"
+                            },
+                            {
+                                "field": "Total",
+                                "type": "quantitative",
+                                "title": "Total Score"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "mark": {
+                        "type": "bar",
+                        "xOffset": 0,
+                        "size": 10
+                    },
+                    "encoding": {
+                        "y": {
+                            "field": "Limits on Content",
+                            "type": "quantitative"
+                        },
+                        "color": {
+                            "datum": "Limits on Content"
+                        },
+                        "tooltip": [
+                            {
+                                "field": "Country",
+                                "type": "nominal",
+                                "title": "Country"
+                            },
+                            {
+                                "field": "Cat2",
+                                "type": "nominal",
+                                "title": "Category"
+                            },
+                            {
+                                "field": "Limits on Content",
+                                "type": "quantitative",
+                                "title": "Score for category"
+                            },
+                            {
+                                "field": "Total",
+                                "type": "quantitative",
+                                "title": "Total Score"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "mark": {
+                        "type": "bar",
+                        "xOffset": 10,
+                        "size": 10
+                    },
+                    "encoding": {
+                        "y": {
+                            "field": "Violations of User Rights",
+                            "type": "quantitative"
+                        },
+                        "color": {
+                            "datum": "Violations of User Rights"
+                        },
+                        "tooltip": [
+                            {
+                                "field": "Country",
+                                "type": "nominal",
+                                "title": "Country"
+                            },
+                            {
+                                "field": "Cat3",
+                                "type": "nominal",
+                                "title": "Category"
+                            },
+                            {
+                                "field": "Violations of User Rights",
+                                "type": "quantitative",
+                                "title": "Score for category"
+                            },
+                            {
+                                "field": "Total",
+                                "type": "quantitative",
+                                "title": "Total Score"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
 }

@@ -7,6 +7,17 @@ body {
     background-color: white;
 }
 
+.main-desc {
+    width: 60vw;
+    height: 4vw;
+    margin: 20vw;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: left;
+    padding-left: 10px;
+    padding-bottom: 5px;
+}
+
 #viz-1-map {
     width: 80vw;
     height: 50vw;
@@ -23,6 +34,17 @@ body {
     margin-bottom: 0;
     width: 40vw;
     height: 25vw;
+}
+
+.map-para{
+    width: 25vw;
+    margin: 2vw;
+    text-align: left;
+}
+
+.chart-para{
+    width: 18.5vw;
+    text-align: left;
 }
 
 .map-heading {
@@ -49,16 +71,19 @@ body {
 }
 
 .map-desc {
-    margin: 3vw;
     width: 80vw;
-    height: 5vw;
+    height: 6vw;
+    margin: 8.5vw;
+    margin-top: 0;
+    margin-bottom: 0;
     font-size: 16px;
     text-align: left;
 }
 .chart-desc {
     margin: 3vw;
+    margin-top: 2vw;
     width: 40vw;
-    height: 5vw;
+    height: 1vw;
     font-size: 16px;
     text-align: left;
 }

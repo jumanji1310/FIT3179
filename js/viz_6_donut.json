@@ -12,11 +12,11 @@
             },
             "mark": {
                 "type": "arc",
-                "innerRadius": 50
+                "innerRadius": 100
             },
             "encoding": {
                 "theta": {
-                    "field": "Users",
+                    "field": "Countries",
                     "type": "quantitative"
                 },
                 "color": {
@@ -26,14 +26,12 @@
                         "domain": [
                             "Free",
                             "Partly free",
-                            "Not free",
-                            "Not assessed"
+                            "Not free"
                         ],
                         "range": [
-                            "#ff7f00",
                             "#4daf4a",
-                            "#984ea3",
-                            "#377eb8"
+                            "#377eb8",
+                            "#ff7f00"
                         ]
                     },
                     "legend":{
@@ -42,6 +40,16 @@
                     }
                 },
                 "tooltip": [
+                    {
+                        "field": "Category",
+                        "type": "nominal",
+                        "title": "Category"
+                    },
+                    {
+                        "field": "Countries",
+                        "type": "quantitative",
+                        "title": "Number of countries"
+                    },
                     {
                         "field": "Percent",
                         "type": "nominal",
@@ -60,8 +68,9 @@
             },
             "mark": {
                 "type": "text",
-                "theta": 0.7,
-                "radius": 120
+                "theta": 0.9,
+                "radius": 150,
+                "fontSize": 20
             },
             "encoding": {
                 "text": {

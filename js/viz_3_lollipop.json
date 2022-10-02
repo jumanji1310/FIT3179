@@ -5,9 +5,6 @@
     "config": {
         "font": "Tahoma"
     },
-    "data": {
-        "url": "https://raw.githubusercontent.com/jumanji1310/FIT3179/main/data/prices.csv"
-    },
     "params": [
         {
             "name": "price_selection",
@@ -26,49 +23,132 @@
             }
         }
     ],
-    "transform": [
-        {"filter": "if(price_selection == 'highest', datum.Price > 50, datum.Price < 50)"}
-    ],
-    "encoding": {
-        "y": {
-            "field": "Country",
-            "type": "nominal",
-            "title": "Country",
-            "sort": "-x",
-            "axis":{
-              "labelFontSize": 15,
-              "titleFontSize": 18
-            }
-        },
-        "x": {
-            "field": "Price",
-            "type": "quantitative",
-            "title": "Monthly price for Unlimited 60Mbps+",
-            "axis":{
-              "labelFontSize": 15,
-              "titleFontSize": 18
-            }
-        },
-        "tooltip": [
-            {
-                "field": "Country",
-                "type": "nominal",
-                "title": "Country"
-            },
-            {
-                "field": "Price",
-                "type": "quantitative",
-                "title": "Price ($AUD)"
-            }
-        ],
-        "color": {"condition": {"test": "datum.Country == 'Australia'", "value": "red"}, "value": "blue"}
-    },
     "layer": [
         {
+            "data": {
+                "url": "https://raw.githubusercontent.com/jumanji1310/FIT3179/main/data/prices.csv"
+            },
+            "transform": [
+                {
+                    "filter": "if(price_selection == 'highest', datum.Price > 50, datum.Price < 50)"
+                }
+            ],
+            "encoding": {
+                "y": {
+                    "field": "Country",
+                    "type": "nominal",
+                    "title": "Country",
+                    "sort": "-x",
+                    "axis": {
+                        "labelFontSize": 15,
+                        "titleFontSize": 18
+                    }
+                },
+                "x": {
+                    "field": "Price",
+                    "type": "quantitative",
+                    "title": "Monthly price for Unlimited 60Mbps+",
+                    "axis": {
+                        "labelFontSize": 15,
+                        "titleFontSize": 18
+                    }
+                },
+                "tooltip": [
+                    {
+                        "field": "Country",
+                        "type": "nominal",
+                        "title": "Country"
+                    },
+                    {
+                        "field": "Price",
+                        "type": "quantitative",
+                        "title": "Price ($AUD)"
+                    }
+                ],
+                "color": {
+                    "condition": {
+                        "test": "datum.Country == 'Australia'",
+                        "value": "red"
+                    },
+                    "value": "navy"
+                }
+            },
             "mark": {
                 "type": "bar",
                 "height": 5
             }
+        },
+        {
+            "data": {
+                "values": [
+                    {
+                        "cost": 10
+                    }
+                ]
+            },
+            "transform": [
+                {
+                    "filter": "if(price_selection == 'highest', datum.cost > 50, datum.cost < 50)"
+                }
+            ],
+            "encoding": {
+                "x": {
+                    "field": "cost",
+                    "type": "quantitative"
+                }
+            },
+            "layer": [
+                {
+                    "mark": "rule"
+                },
+                {
+                    "mark": {
+                        "type": "text",
+                        "align": "right",
+                        "baseline": "bottom",
+                        "dx": 80,
+                        "dy": 220,
+                        "x": "width",
+                        "text": "$10 per month"
+                    }
+                }
+            ]
+        },
+        {
+            "data": {
+                "values": [
+                    {
+                        "cost": 100
+                    }
+                ]
+            },
+            "transform": [
+                {
+                    "filter": "if(price_selection == 'highest', datum.cost > 50, datum.cost < 50)"
+                }
+            ],
+            "encoding": {
+                "x": {
+                    "field": "cost",
+                    "type": "quantitative"
+                }
+            },
+            "layer": [
+                {
+                    "mark": "rule"
+                },
+                {
+                    "mark": {
+                        "type": "text",
+                        "align": "right",
+                        "baseline": "bottom",
+                        "dx": 80,
+                        "dy": 2,
+                        "x": "width",
+                        "text": "$100 per month"
+                    }
+                }
+            ]
         }
     ]
 }

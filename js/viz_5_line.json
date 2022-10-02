@@ -12,19 +12,25 @@
         "type": "line",
         "point": true
     },
+    "transform": [
+        {
+            "calculate": "split(datum.Date, ' ')",
+            "as": "SplitDate"
+        }
+    ],
     "encoding": {
         "y": {
             "field": "Value",
             "type": "quantitative",
             "title": "Total downloads (TB)",
-            "axis":{
-              "labelFontSize": 15,
-              "titleFontSize": 18,
-              "format": "1s"
+            "axis": {
+                "labelFontSize": 15,
+                "titleFontSize": 18,
+                "format": "1s"
             }
         },
         "x": {
-            "field": "Date",
+            "field": "SplitDate",
             "type": "ordinal",
             "axis": {
                 "labelAngle": 0,
@@ -39,8 +45,8 @@
         "color": {
             "field": "Category",
             "type": "nominal",
-            "legend":{
-                "titleFontSize":15,
+            "legend": {
+                "titleFontSize": 15,
                 "labelFontSize": 12
             }
         },
