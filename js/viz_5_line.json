@@ -6,7 +6,7 @@
     "width": "container",
     "height": "container",
     "data": {
-        "url": "../data/subscribers_and_downloads2.csv"
+        "url": "https://raw.githubusercontent.com/jumanji1310/FIT3179/main/data/subscribers_and_downloads2.csv"
     },
     "mark": {
         "type": "line",

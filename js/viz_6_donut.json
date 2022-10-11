@@ -8,7 +8,7 @@
     "layer": [
         {
             "data": {
-                "url": "../data/free_net.csv"
+                "url": "https://raw.githubusercontent.com/jumanji1310/FIT3179/main/data/free_net.csv"
             },
             "mark": {
                 "type": "arc",
