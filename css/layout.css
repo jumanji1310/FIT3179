@@ -39,6 +39,7 @@ body {
 .map-para{
     width: 25vw;
     margin: 2vw;
+    margin-top:0;
     text-align: left;
 }
 

@@ -22,7 +22,27 @@
                     "Highest",
                     "Lowest"
                 ],
-                "name": "Show highest/lowest scores: "
+                "name": "Show highest/lowest total scores: "
+            }
+        },
+        {
+            "name": "category_selection",
+            "value": null,
+            "bind": {
+                "input": "radio",
+                "options": [
+                    null,
+                    "Obstacles to Access",
+                    "Limits on Content",
+                    "Violations of User Rights"
+                ],
+                "labels": [
+                    "Show all",
+                    "Obstacles to Access",
+                    "Limits on Content",
+                    "Violations of User Rights"
+                ],
+                "name": "Filter by category: "
             }
         }
     ],
@@ -146,7 +166,11 @@
                                 "type": "quantitative",
                                 "title": "Total Score"
                             }
-                        ]
+                        ],
+                        "opacity":{
+                            "condition": {"test":"category_selection == null || category_selection == 'Obstacles to Access'","value":1},
+                            "value": 0
+                        }
                     }
                 },
                 {
@@ -184,7 +208,11 @@
                                 "type": "quantitative",
                                 "title": "Total Score"
                             }
-                        ]
+                        ],
+                        "opacity":{
+                            "condition": {"test":"category_selection == null || category_selection == 'Limits on Content'","value":1},
+                            "value": 0
+                        }
                     }
                 },
                 {
@@ -222,7 +250,11 @@
                                 "type": "quantitative",
                                 "title": "Total Score"
                             }
-                        ]
+                        ],
+                        "opacity":{
+                            "condition": {"test":"category_selection == null || category_selection == 'Violations of User Rights'","value":1},
+                            "value": 0
+                        }
                     }
                 }
             ]
