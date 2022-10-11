@@ -4,9 +4,16 @@
         "font": "Tahoma"
     },
     "width": "container",
-    "height": "container",
+    "height": 600,
     "projection": {
         "type": "equalEarth"
+    },
+    "data": {
+        "url": "https://raw.githubusercontent.com/jumanji1310/FIT3179/main/map/ne_110m_admin_0_countries.topojson",
+        "format": {
+            "type": "topojson",
+            "feature": "ne_110m_admin_0_countries"
+        }
     },
     "layer": [
         {
@@ -37,13 +44,7 @@
             }
         },
         {
-            "data": {
-                "url": "https://raw.githubusercontent.com/jumanji1310/FIT3179/main/map/ne_110m_admin_0_countries.topojson",
-                "format": {
-                    "type": "topojson",
-                    "feature": "ne_110m_admin_0_countries"
-                }
-            },
+
             "transform": [
                 {
                     "lookup": "properties.NAME",
@@ -115,6 +116,40 @@
                     }
                 ]
             }
+        },
+        {
+          "transform": [
+            {
+              "lookup": "properties.NAME",
+              "from": {
+                "data": {
+                  "url": "../data/countryInfo.csv"
+                },
+                "key": "name",
+                "fields": ["latitude", "longitude","info"]
+              }
+            },
+            {
+                "calculate": "split(datum.info, ' ')",
+                "as": "SplitInfo"
+            }
+          ],
+          "mark": {"type": "text"},
+          "encoding": {
+            "longitude": {"field": "longitude", "type": "quantitative"},
+            "latitude": {"field": "latitude", "type": "quantitative"},
+            "text": {"field": "SplitInfo", "type": "nominal"},
+            "opacity": {
+              "condition": {
+                "test": "datum['properties.NAME'] == 'Australia' || datum['properties.NAME'] == 'China' || datum['properties.NAME'] == 'United States of America' || datum['properties.NAME'] == 'Russia'",
+                "value": 1
+              },
+              "value": 0
+            },
+            "size": {
+                "value": 17
+            }
+          }
         }
     ]
 }
