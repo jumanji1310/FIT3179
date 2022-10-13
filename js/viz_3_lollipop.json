@@ -51,6 +51,9 @@
                     "axis": {
                         "labelFontSize": 15,
                         "titleFontSize": 18
+                    },
+                    "scale":{
+                        "domain":[0,160]
                     }
                 },
                 "tooltip": [
@@ -149,6 +152,25 @@
                     }
                 }
             ]
+        },
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/jumanji1310/FIT3179/main/data/prices.csv"
+            },
+            "transform": [
+                {
+                    "filter": "datum.Country == 'Australia' && price_selection == 'highest'"
+                }
+            ],
+            "mark":{
+                "type": "text",
+                "align":"left",
+                "dy": 127,
+                "dx":5
+            },
+            "encoding": {
+                "text":{"field":"info","type": "nominal"}
+            }
         }
     ]
 }
