@@ -1,4 +1,4 @@
-﻿Column1,Country,Price
+﻿Column1,Country,Price,info
 ,United Arab Emirates,153.88
 ,Qatar,138.33
 ,Oman,118.39
@@ -14,7 +14,7 @@
 ,Lebanon,81.59
 ,Dominican Republic,79.18
 ,Guatemala,78.16
-,Australia,76.52
+,Australia,76.52,$76.52
 ,Norway,75.97
 ,Palestine,75.91
 ,Trinidad And Tobago,75.58

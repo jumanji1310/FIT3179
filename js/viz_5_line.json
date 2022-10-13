@@ -8,6 +8,25 @@
     "data": {
         "url": "https://raw.githubusercontent.com/jumanji1310/FIT3179/main/data/subscribers_and_downloads2.csv"
     },
+    "params": [
+        {
+          "name": "category_selection",
+          "value": null,
+          "bind": {
+            "input": "radio",
+            "options": [
+              null,
+                "Broadband downloads",
+                "Mobile downloads"
+            ],"labels": [
+              "Show All",
+                "Broadband",
+                "Mobile"
+            ],
+            "name": "Filter by download type: "
+          }
+        }
+    ],
     "mark": {
         "type": "line",
         "point": true
@@ -16,6 +35,9 @@
         {
             "calculate": "split(datum.Date, ' ')",
             "as": "SplitDate"
+        },
+        {
+            "filter":"datum.Category == category_selection || category_selection == null"
         }
     ],
     "encoding": {
@@ -48,6 +70,13 @@
             "legend": {
                 "titleFontSize": 15,
                 "labelFontSize": 12
+            },
+            "scale":{
+                "domain":["Broadband downloads","Mobile downloads"],
+                "range":[
+                    "red",
+                    "blue"
+                ]
             }
         },
         "tooltip": [

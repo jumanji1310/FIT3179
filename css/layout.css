@@ -29,17 +29,26 @@ body {
 
 
 #viz-2-scatter, #viz-3-lollipop, #viz-4-stacked-bar, #viz-5-line, #viz-6-donut, #viz-7-table {
-    margin: 3vw;
+    margin: 4.5vw;
     margin-top: 0;
     margin-bottom: 0;
     width: 40vw;
     height: 25vw;
 }
 
-.map-para{
+.map-para1 {
     width: 25vw;
-    margin: 2vw;
+    margin-left:9vw;
     margin-top:0;
+    margin-right:0;
+    text-align: left;
+}
+
+.map-para2 {
+    width: 25vw;
+    margin-left:3vw;
+    margin-top:0;
+    margin-right:0;
     text-align: left;
 }
 
@@ -63,7 +72,7 @@ body {
 .chart-heading {
     width: 40vw;
     height: 3vw;
-    margin: 3vw;
+    margin: 4.5vw;
     margin-bottom: 0;
     background-color: #0033cc ;
     text-align: left;
@@ -81,7 +90,7 @@ body {
     text-align: left;
 }
 .chart-desc {
-    margin: 3vw;
+    margin: 4.5vw;
     margin-top: 2vw;
     width: 40vw;
     height: 1vw;
@@ -95,7 +104,9 @@ h2 {
 
 h1 {
     text-align: center;
-    color: #0033cc;
-    background-color: lightblue;
+    color: white;
+    background-color: #0033cc;
     font-size: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
