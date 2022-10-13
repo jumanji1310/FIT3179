@@ -109,10 +109,11 @@
                         "type": "text",
                         "align": "right",
                         "baseline": "bottom",
-                        "dx": 80,
+                        "dx": 85,
                         "dy": 220,
                         "x": "width",
-                        "text": "$10 per month"
+                        "text": "$10 per month",
+                        "fontWeight":"bold"
                     }
                 }
             ]
@@ -145,10 +146,11 @@
                         "type": "text",
                         "align": "right",
                         "baseline": "bottom",
-                        "dx": 80,
+                        "dx": 90,
                         "dy": 2,
                         "x": "width",
-                        "text": "$100 per month"
+                        "text": "$100 per month",
+                        "fontWeight":"bold"
                     }
                 }
             ]
@@ -166,7 +168,8 @@
                 "type": "text",
                 "align":"left",
                 "dy": 127,
-                "dx":5
+                "dx":5,
+                "fontWeight":"bold"
             },
             "encoding": {
                 "text":{"field":"info","type": "nominal"}

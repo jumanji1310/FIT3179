@@ -123,7 +123,7 @@
               "lookup": "properties.NAME",
               "from": {
                 "data": {
-                  "url": "https://raw.githubusercontent.com/jumanji1310/FIT3179/main/data/countryInfo.csv"
+                  "url": "../data/countryInfo.csv"
                 },
                 "key": "name",
                 "fields": ["latitude", "longitude","info"]
@@ -134,14 +134,14 @@
                 "as": "SplitInfo"
             }
           ],
-          "mark": {"type": "text"},
+          "mark": {"type": "text", "dy":-10, "fill":"black","fontWeight":"bold"},
           "encoding": {
             "longitude": {"field": "longitude", "type": "quantitative"},
             "latitude": {"field": "latitude", "type": "quantitative"},
             "text": {"field": "SplitInfo", "type": "nominal"},
             "opacity": {
               "condition": {
-                "test": "datum['properties.NAME'] == 'Monaco' || datum['properties.NAME'] == 'Australia' || datum['properties.NAME'] == 'China' || datum['properties.NAME'] == 'United States of America' || datum['properties.NAME'] == 'Russia'",
+                "test": "datum['properties.NAME'] == 'Moldova' || datum['properties.NAME'] == 'Somalia' ||datum['properties.NAME'] == 'Australia' || datum['properties.NAME'] == 'China' || datum['properties.NAME'] == 'United States of America' || datum['properties.NAME'] == 'Russia'",
                 "value": 1
               },
               "value": 0

@@ -106,6 +106,9 @@
                         "labelAngle": 0,
                         "labelFontSize": 15,
                         "titleFontSize": 18
+                    },
+                    "scale":{
+                        "domain":[0,40]
                     }
                 },
                 "color": {
@@ -255,6 +258,57 @@
                             "condition": {"test":"category_selection == null || category_selection == 'Violations of User Rights'","value":1},
                             "value": 0
                         }
+                    }
+                },
+                {
+                    "transform": [
+                        {
+                            "filter": "datum.Country == 'Iceland'"
+                        }
+                    ],
+                    "mark":{
+                        "type": "text",
+                        "align":"left",
+                        "dy": -210,
+                        "dx": -20,
+                        "fontWeight": "bold"
+                    },
+                    "encoding": {
+                        "text":{"value":["Iceland Total ","Score: 96"]}
+                    }
+                },
+                {
+                    "transform": [
+                        {
+                            "filter": "datum.Country == 'Australia'"
+                        }
+                    ],
+                    "mark":{
+                        "type": "text",
+                        "align":"left",
+                        "dy": -130,
+                        "dx": -60,
+                        "fontWeight": "bold"
+                    },
+                    "encoding": {
+                        "text":{"value":["Australia Total ","Score: 75"]}
+                    }
+                },
+                {
+                    "transform": [
+                        {
+                            "filter": "datum.Country == 'China'"
+                        }
+                    ],
+                    "mark":{
+                        "type": "text",
+                        "align":"left",
+                        "dy": 90,
+                        "dx": -40,
+                        "fontWeight": "bold"
+                    },
+                    "encoding": {
+                        "text":{"value":["China Total ","Score: 10"]}
                     }
                 }
             ]

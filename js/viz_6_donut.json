@@ -69,12 +69,13 @@
             "mark": {
                 "type": "text",
                 "theta": 0.9,
-                "radius": 150,
-                "fontSize": 20
+                "radius": 190,
+                "fontSize": 15,
+                "fontWeight":"bold"
             },
             "encoding": {
                 "text": {
-                    "value": "Australia"
+                    "value": ["Australia's internet","freedom is", "categorised as Free"]
                 }
             }
         }

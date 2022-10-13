@@ -10,92 +10,145 @@
     },
     "params": [
         {
-          "name": "category_selection",
-          "value": null,
-          "bind": {
-            "input": "radio",
-            "options": [
-              null,
-                "Broadband downloads",
-                "Mobile downloads"
-            ],"labels": [
-              "Show All",
-                "Broadband",
-                "Mobile"
-            ],
-            "name": "Filter by download type: "
-          }
+            "name": "category_selection",
+            "value": null,
+            "bind": {
+                "input": "radio",
+                "options": [
+                    null,
+                    "Broadband downloads",
+                    "Mobile downloads"
+                ],
+                "labels": [
+                    "Show All",
+                    "Broadband",
+                    "Mobile"
+                ],
+                "name": "Filter by download type: "
+            }
         }
     ],
-    "mark": {
-        "type": "line",
-        "point": true
-    },
     "transform": [
         {
             "calculate": "split(datum.Date, ' ')",
             "as": "SplitDate"
         },
         {
-            "filter":"datum.Category == category_selection || category_selection == null"
+            "filter": "datum.Category == category_selection || category_selection == null"
         }
     ],
-    "encoding": {
-        "y": {
-            "field": "Value",
-            "type": "quantitative",
-            "title": "Total downloads (TB)",
-            "axis": {
-                "labelFontSize": 15,
-                "titleFontSize": 18,
-                "format": "1s"
-            }
-        },
-        "x": {
-            "field": "SplitDate",
-            "type": "ordinal",
-            "axis": {
-                "labelAngle": 0,
-                "labelFontSize": 12,
-                "titleFontSize": 18
+    "layer": [
+        {
+            "mark": {
+                "type": "line",
+                "point": true
             },
-            "sort": [
-                "Jun 2013, Dec 2013"
-            ],
-            "title": "Month and Year"
-        },
-        "color": {
-            "field": "Category",
-            "type": "nominal",
-            "legend": {
-                "titleFontSize": 15,
-                "labelFontSize": 12
-            },
-            "scale":{
-                "domain":["Broadband downloads","Mobile downloads"],
-                "range":[
-                    "red",
-                    "blue"
+            "encoding": {
+                "y": {
+                    "field": "Value",
+                    "type": "quantitative",
+                    "title": "Total downloads (TB)",
+                    "axis": {
+                        "labelFontSize": 15,
+                        "titleFontSize": 18,
+                        "format": "1s"
+                    }
+                },
+                "x": {
+                    "field": "SplitDate",
+                    "type": "ordinal",
+                    "axis": {
+                        "labelAngle": 0,
+                        "labelFontSize": 12,
+                        "titleFontSize": 18
+                    },
+                    "sort": [
+                        "Jun 2013, Dec 2013"
+                    ],
+                    "title": "Month and Year"
+                },
+                "color": {
+                    "field": "Category",
+                    "type": "nominal",
+                    "legend": {
+                        "titleFontSize": 15,
+                        "labelFontSize": 12
+                    },
+                    "scale": {
+                        "domain": [
+                            "Broadband downloads",
+                            "Mobile downloads"
+                        ],
+                        "range": [
+                            "red",
+                            "blue"
+                        ]
+                    }
+                },
+                "tooltip": [
+                    {
+                        "field": "Date",
+                        "type": "nominal",
+                        "title": "Date"
+                    },
+                    {
+                        "field": "Category",
+                        "type": "nominal",
+                        "title": "Download type"
+                    },
+                    {
+                        "field": "Value",
+                        "type": "quantitative",
+                        "title": "Data downloaded in terabytes (TB)",
+                        "format": ","
+                    }
                 ]
             }
         },
-        "tooltip": [
-            {
-                "field": "Date",
-                "type": "nominal",
-                "title": "Date"
+        {
+            "transform":[{
+                "filter": "datum.Value == 3837215"
+            }],
+            "mark":{
+                "type": "text",
+                "align":"left",
+                "dy": -210,
+                "dx": 180,
+                "fontWeight":"bold"
             },
-            {
-                "field": "Category",
-                "type": "nominal",
-                "title": "Download type"
-            },
-            {
-                "field": "Value",
-                "type": "quantitative",
-                "title": "Data downloaded in terabytes (TB)",
-                "format": ","
+            "encoding": {
+                "text":{"value":["3,837,215TB","downloaded"]}
             }
-        ]
-    }
+        },
+        {
+            "transform":[{
+                "filter": "datum.Value == 246765 && category_selection == null"
+            }],
+            "mark":{
+                "type": "text",
+                "align":"left",
+                "dy": 170,
+                "dx": 220,
+                "fontWeight":"bold"
+            },
+            "encoding": {
+                "text":{"value":["246,765TB","downloaded"]}
+            }
+        },
+        {
+            "transform":[{
+                "filter": "datum.Value == 246765 && category_selection == 'Mobile downloads'"
+            }],
+            "mark":{
+                "type": "text",
+                "align":"left",
+                "dy": -210,
+                "dx": 190,
+                "fontWeight":"bold"
+            },
+            "encoding": {
+                "text":{"value":["246,765TB","downloaded"]}
+            }
+        }
+    ]
 }
