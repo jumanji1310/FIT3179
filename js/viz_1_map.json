@@ -141,7 +141,7 @@
             "text": {"field": "SplitInfo", "type": "nominal"},
             "opacity": {
               "condition": {
-                "test": "datum['properties.NAME'] == 'Australia' || datum['properties.NAME'] == 'China' || datum['properties.NAME'] == 'United States of America' || datum['properties.NAME'] == 'Russia'",
+                "test": "datum['properties.NAME'] == 'Monaco' || datum['properties.NAME'] == 'Australia' || datum['properties.NAME'] == 'China' || datum['properties.NAME'] == 'United States of America' || datum['properties.NAME'] == 'Russia'",
                 "value": 1
               },
               "value": 0
